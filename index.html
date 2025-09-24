@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Sai Sriyan Nakka" />
+    <meta
+      name="description"
+      content="A game where you guess endlessly until you lose..."
+    />
+    <title>EndlessGuess</title>
+    <style>
+      @font-face {
+        font-family: "headFont";
+        src: url("fonts/Clickuper.woff2") format("woff2");
+      }
+
+      @font-face {
+        font-family: "bodyFont";
+        src: url("fonts/MerriweatherSans.woff2") format("woff2");
+      }
+
+      .icon {
+        width: 40px;
+        margin: 0.5rem;
+        background-color: black;
+        transition: all 0.2s ease-in-out;
+      }
+      .icon:hover {
+        cursor: pointer;
+        transform: scale(1.25);
+      }
+      body {
+        font-size: 62.5%;
+        background-color: black;
+        color: white;
+        font-size: 1.6rem;
+        text-align: center;
+        font-family: bodyFont, sans-serif;
+      }
+      footer {
+        font-size: 1.25rem;
+        padding: 0.5rem;
+        padding-top: 0px;
+      }
+      footer a {
+        text-decoration: none;
+      }
+      a,
+      button {
+        cursor: pointer;
+      }
+      hr {
+        height: 3px;
+        border: none;
+        background-color: white;
+      }
+      #footerHr {
+        margin-bottom: 5px;
+        margin-top: 15px;
+      }
+      header h1 {
+        font-family: headFont, serif;
+        margin: 0;
+        text-decoration: underline;
+      }
+      details p {
+        margin: 7px 0px;
+      }
+      details {
+        margin: 0px 15px;
+      }
+      summary {
+        cursor: pointer;
+        font-weight: bold;
+      }
+      #numbers img {
+        width: 145px;
+        cursor: pointer;
+        transition: all 0.15s ease-in-out;
+      }
+      #numbers {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+      @media (pointer: fine) and (min-width: 1024px) {
+        #numbers img {
+          width: 170px;
+        }
+        #numbers img:hover {
+          border: 4px solid hsl(0, 80%, 50%);
+        }
+      }
+      #gameContainer p {
+        margin: 10px 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="script.js" defer></script>
+    <header>
+      <h1>Endless Guess</h1>
+      <details>
+        <summary><u>How to Play</u></summary>
+        <p>
+          Welcome to EndlessGuess, where you guess endlessly until you lose...
+        </p>
+        <p>
+          The game rules are simple: you have to select how many numbers you
+          want to choose between before beginning the game. Then, you will be
+          guessing a number. If your guessed number is correct, you get a point
+          and move on! If not, you will lose.
+        </p>
+        <p>
+          There is singleplayer and multiplayer mode. In singleplayer mode, you
+          will play by yourself. In multiplayer mode, you have to play with a
+          friend on the same device. You have to select who goes first, and the
+          person with the most amount of points wins!
+        </p>
+        <p style="font-weight: bold">Good Luck and have fun!</p>
+      </details>
+    </header>
+    <hr />
+    <main>
+      <button id="playButton">Play</button>
+      <div id="gameContainer">
+        <div id="numbers">
+          <img src="img/animated1.svg" alt="Number 1" id="num1" />
+          <img src="img/animated2.svg" alt="Number 2" id="num2" />
+          <img src="img/animated3.svg" alt="Number 3" id="num3" />
+          <img src="img/animated4.svg" alt="Number 4" id="num4" />
+          <img src="img/animated5.svg" alt="Number 5" id="num5" />
+        </div>
+        <p id="result"></p>
+      </div>
+    </main>
+    <hr id="footerHr" />
+    <footer>
+      <center>
+        <a href="https://github.com/Sriyan-Nakka" target="_blank">
+          <svg
+            class="icon github"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="white"
+              d="M12 1A10.89 10.89 0 0 0 1 11.77A10.79 10.79 0 0 0 8.52 22c.55.1.75-.23.75-.52v-1.83c-3.06.65-3.71-1.44-3.71-1.44a2.86 2.86 0 0 0-1.22-1.58c-1-.66.08-.65.08-.65a2.31 2.31 0 0 1 1.68 1.11a2.37 2.37 0 0 0 3.2.89a2.33 2.33 0 0 1 .7-1.44c-2.44-.27-5-1.19-5-5.32a4.15 4.15 0 0 1 1.11-2.91a3.78 3.78 0 0 1 .11-2.84s.93-.29 3 1.1a10.7 10.7 0 0 1 5.5 0c2.1-1.39 3-1.1 3-1.1a3.78 3.78 0 0 1 .11 2.84A4.15 4.15 0 0 1 19 11.2c0 4.14-2.58 5.05-5 5.32a2.5 2.5 0 0 1 .75 2v2.95c0 .35.2.63.75.52A10.8 10.8 0 0 0 23 11.77A10.89 10.89 0 0 0 12 1"
+            />
+          </svg>
+        </a>
+        <a href="https://sriyan-blogs.blogspot.com/">
+          <svg
+            class="icon blogger"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 32 32"
+          >
+            <path
+              fill="white"
+              d="M13 7a6 6 0 0 0-6 6v7a6 6 0 0 0 6 6h7a6 6 0 0 0 6-6v-5a1 1 0 0 0-1-1h-1a1 1 0 0 1-1-1a6 6 0 0 0-6-6zm0 5h4c.55 0 1 .45 1 1s-.45 1-1 1h-4c-.55 0-1-.45-1-1s.45-1 1-1m0 7h7c.55 0 1 .45 1 1s-.45 1-1 1h-7c-.55 0-1-.45-1-1s.45-1 1-1"
+            />
+          </svg>
+        </a>
+        <br />
+        &copy; Copyright, Sai Sriyan Nakka 2025, All Rights Reserved.
+        <br />Version 0.2 <br />
+      </center>
+    </footer>
+  </body>
+</html>
