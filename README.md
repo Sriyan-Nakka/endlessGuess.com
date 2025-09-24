@@ -1,4 +1,4 @@
-# endlessGuess
+# EndlessGuess
 
 A game where you guess endlessly until you lose...
 
