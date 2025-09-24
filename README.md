@@ -14,7 +14,8 @@ A game where you guess endlessly until you lose...
     with a friend on the same device. You have to select who goes first,
     and the person with the most amount of points wins!
 </p>
-<p style="font-weight: bold">Good Luck and have fun!</p>
+
+**Good Luck and have fun!**
 
 ### Website Background:
 
