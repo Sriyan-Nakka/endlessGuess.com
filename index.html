@@ -53,6 +53,23 @@
       button {
         cursor: pointer;
       }
+      /* --bg-color: hsl(0, 60%, 40%);
+      --lighter: hsl(from var(--bg-color) h s 55); */
+      button {
+        --bg-color: hsl(120, 73%, 65%);
+        --lighter: hsl(from var(--bg-color) h s 55);
+        border-radius: 5px;
+        padding: 5px;
+        margin: 10px;
+        border: 1px solid white;
+        background-color: var(--bg-color);
+        color: white;
+        font-size: 1.1rem;
+        font-family: bodyFont, serif;
+        font-weight: bold;
+        transition: background-color 0.15s ease-in-out,
+          transform 0.2s ease-in-out;
+      }
       hr {
         height: 3px;
         border: none;
@@ -72,6 +89,8 @@
       }
       details {
         margin: 0px 15px;
+        padding: 5px;
+        background-color: hsla(0, 0%, 0%, 0.95);
       }
       summary {
         cursor: pointer;
@@ -79,6 +98,7 @@
       }
       #numbers img {
         width: 145px;
+        border-radius: 15px;
         cursor: pointer;
         transition: all 0.15s ease-in-out;
       }
@@ -95,14 +115,27 @@
         #numbers img:hover {
           border: 4px solid hsl(0, 80%, 50%);
         }
+        button:hover {
+          background-color: var(--lighter);
+          transform: scale(1.15);
+        }
       }
       #gameContainer p {
         margin: 10px 0px;
+      }
+      #gameContainer {
+        display: none;
       }
       #fullContainer {
         background-color: hsla(0, 0%, 0%, 0.85);
         border: 3px solid hsl(0, 0%, 70%);
         border-radius: 10px;
+      }
+      #resetButton {
+        --bg-color: red;
+      }
+      #playButton {
+        color: black;
       }
     </style>
   </head>
@@ -142,6 +175,7 @@
             <img src="img/animated4.svg" alt="Number 4" id="num4" />
             <img src="img/animated5.svg" alt="Number 5" id="num5" />
           </div>
+          <button id="resetButton">Reset</button>
           <p id="result"></p>
         </div>
       </main>
@@ -174,7 +208,7 @@
           </a>
           <br />
           &copy; Copyright, Sai Sriyan Nakka 2025, All Rights Reserved.
-          <br />Version 0.25 <br />
+          <br />Version 0.29 <br />
         </center>
       </footer>
     </div>
