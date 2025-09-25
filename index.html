@@ -123,7 +123,8 @@
       #gameContainer p {
         margin: 10px 0px;
       }
-      #gameContainer {
+      #gameContainer,
+      #chooseContainer {
         display: none;
       }
       #fullContainer {
@@ -134,8 +135,15 @@
       #resetButton {
         --bg-color: red;
       }
-      #playButton {
+      #playSPButton {
         color: black;
+      }
+      #playMPButton {
+        --bg-color: orangered;
+      }
+      .chooseButton {
+        margin: 3px;
+        width: 35px;
       }
     </style>
   </head>
@@ -166,7 +174,51 @@
       </header>
       <hr />
       <main>
-        <button id="playButton">Play</button>
+        <div id="modeContainer">
+          <button id="playSPButton">Play Singleplayer</button>
+          <button id="playMPButton" style="display: none">
+            Play Multiplayer
+          </button>
+        </div>
+        <div id="chooseContainer">
+          <p style="margin: 10px 0px; font-weight: bold">
+            Choose how many numbers you want to choose between:
+          </p>
+          <button
+            class="chooseButton"
+            data-numbers="2"
+            style="--bg-color: blue"
+          >
+            2
+          </button>
+          <button
+            class="chooseButton"
+            data-numbers="3"
+            style="--bg-color: purple"
+          >
+            3
+          </button>
+          <button
+            class="chooseButton"
+            data-numbers="4"
+            style="--bg-color: #d8b208"
+          >
+            4
+          </button>
+          <button
+            class="chooseButton"
+            data-numbers="5"
+            style="--bg-color: #e54c19"
+          >
+            5
+          </button>
+        </div>
+
+        <!-- multiplayer names dialog -->
+        <dialog id="multiplayerNames">
+          <!-- todo: write multiplayer names dialog -->
+        </dialog>
+
         <div id="gameContainer">
           <div id="numbers">
             <img src="img/animated1.svg" alt="Number 1" id="num1" />
@@ -208,7 +260,7 @@
           </a>
           <br />
           &copy; Copyright, Sai Sriyan Nakka 2025, All Rights Reserved.
-          <br />Version 0.29 <br />
+          <br />Version 0.33 <br />
         </center>
       </footer>
     </div>
