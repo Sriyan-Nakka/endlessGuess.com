@@ -143,7 +143,21 @@
       }
       .chooseButton {
         margin: 3px;
-        width: 35px;
+        width: 45px;
+        font-size: 1.6rem;
+      }
+      dialog {
+        background-color: hsl(0, 0%, 10%);
+        color: whitesmoke;
+        font-weight: bold;
+      }
+      input {
+        font-size: 1.6rem;
+        width: 200px;
+      }
+      #multiplayerNames button {
+        --bg-color: orangered;
+        color: black;
       }
     </style>
   </head>
@@ -161,7 +175,9 @@
             The game rules are simple: you have to select how many numbers you
             want to choose between before beginning the game. Then, you will be
             guessing a number. If your guessed number is correct, you get a
-            point and move on! If not, you will lose.
+            point and move on! If not, you will lose 2 points and the random
+            number will change. If you guess wrong 3 times, you will lose the
+            game.
           </p>
           <p>
             There is singleplayer and multiplayer mode. In singleplayer mode,
@@ -201,7 +217,7 @@
           <button
             class="chooseButton"
             data-numbers="4"
-            style="--bg-color: #d8b208"
+            style="--bg-color: #bf9d07"
           >
             4
           </button>
@@ -216,19 +232,87 @@
 
         <!-- multiplayer names dialog -->
         <dialog id="multiplayerNames">
-          <!-- todo: write multiplayer names dialog -->
+          <form id="namesForm">
+            <p>
+              Player 1:
+              <input
+                type="text"
+                id="player1Name"
+                placeholder="Player 1 Name"
+                required
+              />
+            </p>
+            <p>
+              Player 2:
+              <input
+                type="text"
+                id="player2Name"
+                placeholder="Player 2 Name"
+                required
+              />
+            </p>
+            <button type="submit">Choose Number of Numbers</button>
+          </form>
+        </dialog>
+
+        <!-- overview of scores after losing dialog -->
+        <dialog id="overview">
+          <!-- todo: write this -->
         </dialog>
 
         <div id="gameContainer">
+          <p>
+            <u><b>Chances left:</b></u>
+            <span id="chancesLeft">3</span>
+          </p>
           <div id="numbers">
-            <img src="img/animated1.svg" alt="Number 1" id="num1" />
-            <img src="img/animated2.svg" alt="Number 2" id="num2" />
-            <img src="img/animated3.svg" alt="Number 3" id="num3" />
-            <img src="img/animated4.svg" alt="Number 4" id="num4" />
-            <img src="img/animated5.svg" alt="Number 5" id="num5" />
+            <!-- number 1 -->
+            <img
+              src="img/animated1.svg"
+              alt="Number 1"
+              id="num1"
+              class="number"
+              data-number="1"
+            />
+            <!-- number 2 -->
+            <img
+              src="img/animated2.svg"
+              alt="Number 2"
+              id="num2"
+              class="number"
+              data-number="2"
+            />
+            <!-- number 3 -->
+            <img
+              src="img/animated3.svg"
+              alt="Number 3"
+              id="num3"
+              class="number"
+              data-number="3"
+            />
+            <!-- number 4 -->
+            <img
+              src="img/animated4.svg"
+              alt="Number 4"
+              id="num4"
+              class="number"
+              data-number="4"
+            />
+            <!-- number 5 -->
+            <img
+              src="img/animated5.svg"
+              alt="Number 5"
+              id="num5"
+              class="number"
+              data-number="5"
+            />
           </div>
+          <p>
+            <u><b>Points:</b></u>
+            <span id="pointsSpan">0</span>
+          </p>
           <button id="resetButton">Reset</button>
-          <p id="result"></p>
+          <p id="result" style="font-weight: bolder"></p>
         </div>
       </main>
       <hr id="footerHr" />
@@ -260,7 +344,7 @@
           </a>
           <br />
           &copy; Copyright, Sai Sriyan Nakka 2025, All Rights Reserved.
-          <br />Version 0.33 <br />
+          <br />Version 0.49 <br />
         </center>
       </footer>
     </div>
