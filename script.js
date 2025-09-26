@@ -12,6 +12,8 @@ const pointsSpan = document.querySelector("#pointsSpan");
 const chancesLeftSpan = document.querySelector("#chancesLeft");
 
 const namesForm = document.getElementById("namesForm");
+const singleplayerOverview = document.getElementById("singleplayerOverview");
+const multiplayerOverview = document.getElementById("multiplayerOverview");
 const player1Name = document.getElementById("player1Name");
 const player2Name = document.getElementById("player2Name");
 
