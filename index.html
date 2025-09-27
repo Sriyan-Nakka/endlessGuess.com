@@ -132,7 +132,8 @@
         border: 3px solid hsl(0, 0%, 70%);
         border-radius: 10px;
       }
-      #resetButton {
+      #resetButton,
+      #singleplayerOverview button {
         --bg-color: red;
       }
       #playSPButton {
@@ -175,7 +176,7 @@
             The game rules are simple: you have to select how many numbers you
             want to choose between before beginning the game. Then, you will be
             guessing a number. If your guessed number is correct, you get a
-            point and move on! If not, you will lose 2 points and the random
+            point and move on! If not, you will lose 1 point and the random
             number will change. If you guess wrong 3 times, you will lose the
             game.
           </p>
@@ -256,14 +257,24 @@
         </dialog>
 
         <!-- overview of scores after losing dialogs -->
-        <dialog id="singleplayerOverview">
+        <dialog
+          id="singleplayerOverview"
+          style="padding: 15px; padding-bottom: 7px"
+        >
           <!-- todo: write this -->
-        </dialog>
-        <dialog id="multiplayerOverview">
-          <!-- todo: write this -->
+          <b><u>Overview:</u></b>
+          <p style="margin: 10px 0px">
+            Total Points: <span id="totalPoints">0</span><br />
+            <button onclick="singleplayerOverview.close()">Close</button>
+          </p>
         </dialog>
 
-        <div id="gameContainer">
+        <dialog id="multiplayerOverview">
+          <!-- todo: write this -->
+          <p><u>Overview:</u></p>
+        </dialog>
+
+        <div id="gameContainer" style="background-color: hsl(0, 0%, 0%, 0.75)">
           <p>
             <u><b>Chances left:</b></u>
             <span id="chancesLeft">3</span>
@@ -347,7 +358,7 @@
           </a>
           <br />
           &copy; Copyright, Sai Sriyan Nakka 2025, All Rights Reserved.
-          <br />Version 0.49 <br />
+          <br />Version 0.5 <br />
         </center>
       </footer>
     </div>

@@ -9,6 +9,7 @@ const numbersDiv = document.querySelector("#numbers");
 const multiplayerNames = document.querySelector("#multiplayerNames");
 const result = document.querySelector("#result");
 const pointsSpan = document.querySelector("#pointsSpan");
+const totalPointsSpan = document.querySelector("#totalPoints");
 const chancesLeftSpan = document.querySelector("#chancesLeft");
 
 const namesForm = document.getElementById("namesForm");
@@ -127,6 +128,8 @@ numbers.forEach((number) => {
         result.style.color = "white";
       }, 2000);
     } else {
+      points--;
+      pointsSpan.textContent = points;
       chancesLeft--;
       chancesLeftSpan.textContent = chancesLeft;
       if (chancesLeft <= 0) {
@@ -135,6 +138,8 @@ numbers.forEach((number) => {
         numbersDiv.style.display = "none";
         resetBtn.style.display = "none";
         setTimeout(() => {
+          singleplayerOverview.showModal();
+          totalPointsSpan.textContent = points;
           numbersDiv.style.pointerEvents = "auto";
           numbersDiv.style.display = "flex";
           gameContainer.style.display = "none";
@@ -144,8 +149,6 @@ numbers.forEach((number) => {
           result.style.color = "white";
         }, 2000);
       } else {
-        points = points - 2;
-        pointsSpan.textContent = points;
         result.textContent = `You are wrong... The number was ${randNum}, guess another number.`;
         result.style.color = "red";
         setTimeout(() => {
